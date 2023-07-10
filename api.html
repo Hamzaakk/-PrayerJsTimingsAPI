@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Api Salat</title>
+    <style>
+        .content{
+            padding-top: 30px;
+        }
+        body{
+            background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+    <link href="/dist/output.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+rel="stylesheet"
+/>
+</head>
+<body>
+    <!-- Just an image -->
+<nav class="navbar navbar-light bg-light fix fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img
+          src="./icons8-mosque-48.png"
+          height="50"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+    </div>
+  </nav>
+    <div class="content ">
+        <div class="container my-5 ">
+            <h1 id="headcity">Rabat</h1>
+            <p id="nowdate">19/08/2023</p>
+            <select class="form-select" aria-label="Default select example" id="select">
+                <!-- <option selected>Rabat</option>
+                <option value="1">One</option>
+                <option value="2">Two</option> -->
+              </select>
+            <div class="boxes d-flex flex-wrap justify-content-between  my-5">
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-vector/mosque-field-sunset_1308-29513.jpg?w=996&t=st=1688996086~exp=1688996686~hmac=cb8ecae6f34825e3881fd5fb5fa6b777532792fe5a33273bb4c04e26525ff766" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Fajr</h5>
+                          <p class="card-text" id="fajr">16.23</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-photo/view-famous-abu-dhabi-sheikh-zayed-mosque-by-night-uae_268835-1065.jpg?w=996&t=st=1688996052~exp=1688996652~hmac=adbd698f2fabd54ce7d02532b5141a41abb202cf3679e31752f20b7c2355a450" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Sunrise</h5>
+                          <p class="card-text" id="sunri">16.23</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-photo/al-maghfirah-mosque-uae-with-its-domes-towers-clear-sky_181624-27600.jpg?w=996&t=st=1688995875~exp=1688996475~hmac=ca68e7ff8962358d616b1c269878ec8bacd0e348f4f1170ea1b13a073ebfa54c" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Duhr</h5>
+                          <p class="card-text" id="dohr">16.23</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-photo/muslim-travel-putrajaya-architecture-building_1122-1626.jpg?w=996&t=st=1688995901~exp=1688996501~hmac=6c8ef29254bfb5c9cfdd7a735b086b59d8a594947b0174c1bb57e6bfa90476d4" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Asr</h5>
+                          <p class="card-text" id="asr">16.23</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-photo/blue-mosque-night-city-istanbul-turkey_628469-10.jpg?w=996&t=st=1688995942~exp=1688996542~hmac=165fb3aacfaf7bea0758982bf15be3c1fc3dde62be26d0b5986e6f660135772f" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">mghrib</h5>
+                          <p class="card-text" id="mghrib">16.23</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box mt-2">
+                    <div class="card" style="width: 10rem;">
+                        <img src="https://img.freepik.com/free-photo/free-photo-ramadan-kareem-eid-mubarak-mosque-evening-with-sun-light-background_1340-23514.jpg?t=st=1688995981~exp=1688999581~hmac=6f997f8eb6fcfef33f0127baa10ebc8bab23749767089249c765f0efe4f4729b&w=996" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Isha</h5>
+                          <p class="card-text" id="asha">16.23</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+
+
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        //  "Errachidia","Fès", "Meknès","Al Hoceïma"
+        let cities = [ 
+            {
+                name : "Rabat",
+                isocode : "Rabat"
+            },
+            {
+                
+                name : "Casablanca",
+                isocode : "Casablanca"
+            },
+            {
+                name : "Errachidia",
+                isocode : "Errachidia"
+            },
+            {
+                name : "Fès",
+                isocode : "Fès"
+            },
+            {
+                name : "Al Hoceïma",
+                isocode : "Al Hoceïma"
+            }
+    
+         ]
+       
+        for(let city of cities)
+        {
+       
+            const content = `
+            <option >${city.name}</option>
+         `
+        //  console.log(content)
+        document.getElementById('select').innerHTML += content
+        }
+       
+      function timeOfpray(cityname)
+      {
+        let params = {
+        country : "MA",
+        city : cityname,
+        method : 3
+       }
+        axios.get('http://api.aladhan.com/v1/timingsByCity',{
+            params : params
+        })
+            .then(function (response) {
+                // handle success
+                   console.log(response.data.data)
+                   let datenow = response.data.data.date.readable
+                  document.getElementById('nowdate').innerText = datenow
+                  const timings = response.data.data.timings
+                    fillTime("fajr",timings.Fajr)
+                    fillTime("dohr",timings.Dhuhr)
+                    fillTime("asr",timings.Asr)
+                    fillTime("sunri",timings.Sunrise)
+                    fillTime("mghrib",timings.Maghrib)
+                    fillTime("asha",timings.Isha)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+
+      }
+
+  onload = () =>{
+            let select = document.getElementById('select')
+             select.addEventListener('change', function() {
+                document.getElementById('headcity').innerText= select.value
+                let lastcity = ""
+                for(let city of cities)
+                {
+                    if(city.name == select.value){
+                        lastcity = city.isocode
+                         console.log(lastcity)
+                         timeOfpray(city.isocode);
+                    }
+                      
+                }
+             })
+        }
+        function fillTime(id,time){
+    document.getElementById(id).innerText =time
+  }
+        timeOfpray("Rabat");
+       
+    </script>
+</body>
+</html>
