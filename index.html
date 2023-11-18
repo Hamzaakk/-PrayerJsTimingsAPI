@@ -310,32 +310,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script>
 
-axios.get('http://api.aladhan.com/v1/timingsByCity?country=MA&city=Rabat&method=4')
-  .then(function (response) {
-    // handle success
-    console.log(response.data.data);
-    let datenow = response.data.data.date.readable
-    document.getElementById('nowdate').innerText = datenow
 
-    console.log(response.data.data.timings.Fajr)
-    const timings = response.data.data.timings
-    fillTime("fajr",timings.Fajr)
-    fillTime("dohr",timings.Dhuhr)
-    fillTime("asr",timings.Asr)
-    fillTime("mghrib",timings.Maghrib)
-    fillTime("asha",timings.Isha)
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
-  });
-  
-  function fillTime(id,time){
-    document.getElementById(id).innerText =time
-  }
 </script>
 </body>
 </html>
